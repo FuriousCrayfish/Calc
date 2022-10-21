@@ -6,8 +6,18 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_potato"
 
-    tools:context=".MainActivity">
+    tools:context="ui.MainActivity">
 
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white"
+        android:textSize="40sp"/>
 
     <Button
         android:id="@+id/button_1"
@@ -28,7 +38,7 @@
         app:layout_constraintEnd_toStartOf="@id/button_3"
         app:layout_constraintStart_toEndOf="@id/button_1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7"/>
+        app:layout_constraintVertical_bias="0.6"/>
 
     <Button
         android:id="@+id/button_3"
@@ -162,5 +172,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_0" />
 
+    <Button
+        android:id="@+id/button_equally"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/button_multiply"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/button_minus"
+        app:layout_constraintEnd_toEndOf="@id/button_divide"
+        android:text="@string/_equally"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,4 +20,5 @@
     <string name="_divide">/</string>
     <string name="addition">addition</string>
     <string name="_addition">addition</string>
+    <string name="_equally">=</string>
 </resources>
