@@ -40,7 +40,7 @@
         app:layout_constraintEnd_toStartOf="@id/button_3"
         app:layout_constraintStart_toEndOf="@id/button_1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"/>
+        app:layout_constraintVertical_bias="0.5"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_3"
@@ -183,6 +183,17 @@
         app:layout_constraintStart_toStartOf="@id/button_minus"
         app:layout_constraintEnd_toEndOf="@id/button_divide"
         android:text="@string/_equally"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/set_theme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/button_equally"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/button_equally"
+        app:layout_constraintEnd_toEndOf="@id/button_equally"
+        android:text="@string/set_theme"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

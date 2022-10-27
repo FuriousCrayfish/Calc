@@ -2,10 +2,16 @@ package ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.calc.ActivityTheme;
 import com.example.calc.R;
 
 import java.util.HashMap;
@@ -19,12 +25,16 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     private TextView resultTxt;
     private CalculatorPresenter presenter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences sp = getSharedPreferences("Theme", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        int theme = sp.getInt("THEME", 0);
+        Log.e("Tag", String.valueOf(theme));
+        setTheme(theme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         resultTxt = findViewById(R.id.result);
         presenter = new CalculatorPresenter(this, new CalculatorImpl());
@@ -44,9 +54,7 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         View.OnClickListener digitClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 presenter.onDigitPressed(digits.get(view.getId()));
-
             }
         };
 
@@ -73,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
             public void onClick(View view) {
 
                 presenter.onOperatorPressed(operators.get(view.getId()));
-
             }
         };
 
@@ -91,13 +98,19 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
 
         findViewById(R.id.button_equally).setOnClickListener(operatorsClickListener);
 
+        findViewById(R.id.set_theme).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ActivityTheme.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
-
 
     @Override
     public void showResult(String result) {
 
         resultTxt.setText(result);
-
     }
 }
